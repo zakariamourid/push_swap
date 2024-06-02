@@ -31,6 +31,7 @@ t_data **ft_stackfill(char **av,int ac,t_vars *my_vars);
 void print_ld(t_data *head, const char *str);
 t_data **get_stack(char s);
 t_vars *get_vars();
+void clean_exit();
 char *ft_strjoin_all(char **av, int ac);
 int *ft_fill_array(t_data *head);
 void print_ld(t_data *head, const char *str) ;

@@ -29,6 +29,14 @@ t_vars *get_vars()
 	return &my_vars;
 
 }
+t_data **get_stack(char s)
+{
+	static t_data *stack_a;
+	static t_data *stack_b;
+	if(s == 'a')
+		return &stack_a;
+	return &stack_b;
+}
 
 int main(int ac,char **av)
 {
@@ -37,6 +45,7 @@ int main(int ac,char **av)
 	(void)av;
 	t_vars *my_vars =get_vars();
 	my_vars->stack_a = ft_stackfill(av,ac,my_vars);
+	my_vars->stack_b = get_stack('b');
 	if(is_sorted(*(my_vars->stack_a)))
 	{
 	printf(GREEN "it's sorted mate \n");

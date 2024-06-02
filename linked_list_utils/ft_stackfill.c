@@ -75,7 +75,7 @@ void free_ps()
 {
 		free_stack(get_vars()->stack_a);
 		free_stack(get_vars()->stack_b);
-	clean_exit();
+	//clean_exit();
 }
 
 int check_duplicates(char **args)
@@ -138,7 +138,7 @@ t_data **ft_stackfill(char **av,int ac,t_vars *my_vars)
 {		//TODO complete this function
     t_data **head;
 	int i = 0;
-	head = get_vars()->stack_a;
+	head = get_stack('a');
 	if(check_empty(av ,ac))
 		printf("wa khoya wach nta mrid \n");
 	my_vars->str = ft_strjoin_all(av+1, ac);
