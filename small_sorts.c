@@ -27,3 +27,29 @@ void sort_three(t_data **stack)
     if((*stack)->next->value < (*stack)->value)
         op_swap(stack, "sa");
 }
+
+void sort_four(t_data **stack_a, t_data **stack_b)
+{
+	if(!stack_a || !stack_b)
+		return;
+	int max = find_max(stack_a);
+	while((*stack_a)->value != max)
+		op_rotate(stack_a, "ra");
+	op_push(stack_a, stack_b, "pb");
+	sort_three(stack_a);
+	op_push(stack_b, stack_a, "pa");
+	op_rotate(stack_a, "ra");
+}
+
+void sort_five(t_data **stack_a, t_data **stack_b)
+{
+	if(!stack_a || !stack_b)
+		return;
+	int max = find_max(stack_a);
+	while((*stack_a)->value != max)
+		op_rotate(stack_a, "ra");
+	op_push(stack_a, stack_b, "pb");
+	sort_four(stack_a, stack_b);
+	op_push(stack_b, stack_a, "pa");
+	op_rotate(stack_a, "ra");
+}

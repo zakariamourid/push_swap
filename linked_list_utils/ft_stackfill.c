@@ -26,12 +26,13 @@ static void	free_split(char **str)
 }
 void clean_exit()
 {
-	printf("wewe\n");
+	printf("Error\n");
 	t_vars *my_vars = get_vars();
 	if(my_vars->temp)
 		free_split(my_vars->temp);
 	if(my_vars->str)
 		free(my_vars->str);
+	free_ps();
 	exit(0);
 }
 long ft_atoi(char *str)
@@ -101,8 +102,9 @@ int check_forbidden(char *str)
   int i = 0;
 if(str[i] == '-' || str[i] =='+')
 	i++;
-  while(str[i])
-  {
+if(!str[i])
+	return 1;
+  while(str[i]) {
 	if(!ft_isdigit(str[i]))// && str[i] != ' ' && str[i] != '-')
 		return 1;
 	i++;
@@ -129,37 +131,33 @@ int check_empty(char **args,int ac)
 	{
 		if(args[i][0] == 0)
 			return 1;
-		ac--;
+		i++;
 	}
 	return 0;
 }
 
 t_data **ft_stackfill(char **av,int ac,t_vars *my_vars)
-{		//TODO complete this function
+{
     t_data **head;
-	int i = 0;
+	t_data *tmp;
 	head = get_stack('a');
 	if(check_empty(av ,ac))
-		printf("wa khoya wach nta mrid \n");
+		clean_exit();
 	my_vars->str = ft_strjoin_all(av+1, ac);
 	if(!my_vars->str)
 		return NULL;
 	char **temp = ft_split(my_vars->str, ' ');
 	my_vars->temp = temp;
 	if( !temp || check_args(temp))
+		clean_exit();
+	while(*temp)
 	{
-		free_ps();
-		free_split(temp - i);
-		printf("Error\n");
-		exit(1);
-		return NULL;
-	}
-	while(*temp) {
-		i++;
-        ft_stack_addback(head,ft_newnode(ft_atoi(*temp++)));
+		tmp = ft_newnode(ft_atoi(*temp++));
+		if(!tmp)
+			clean_exit();
+        ft_stack_addback(head,tmp);
 	}
 	free(my_vars->str);
-	my_vars->str = NULL;
-	free_split(temp - i);
+	free_split(my_vars->temp);
     return head;
 }

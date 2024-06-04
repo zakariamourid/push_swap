@@ -1,6 +1,6 @@
 CC := cc
 
-CFLAGS := -Wall -Wextra -g #-fsanitize=address#-Werror
+CFLAGS := -Wall -Wextra -g3  #-fsanitize=address#-Werror
 SRC_DIR := linked_list_utils
 NAME := push_swap
 # CFILES := ./linked_list_utils/ft_stack_addback.c linked_list_utils/ft_stacksize.c linked_list_utils/ft_stacklast.c linked_list_utils/ft_delnode.c linked_list_utils/ft_stack_addfront.c linked_list_utils/ft_newnode.c linked_list_utils/ft_stackfill.c \

@@ -24,23 +24,42 @@ void ft_bubble_sort(int *array, int len)
 }
 
 
-int *ft_fill_array(t_data *head)
+int *stack_to_array(t_data *stack)
 {
+	int *arr;
 	int i;
-	int *array;
-	array = malloc(sizeof(int) * ft_stacksize(head));
-	if(!array)
+	int size;
+	
+	i = 0;
+	size = ft_stacksize(stack);
+	arr = malloc(sizeof(int) * size);
+	if(!arr)
 		return NULL;
-	t_data *temp;
-	i = 0;
-	temp = head;
-	while (temp)
+	while(stack)
 	{
-		array[i++] = temp->value;
-		temp = temp->next;
+		arr[i++] = stack->value;
+		stack = stack->next;
 	}
-	int len = ft_stacksize(head);
-	i = 0;
-	ft_bubble_sort(array, len);
-	return array;
+	ft_bubble_sort(arr,size);
+	return arr;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
