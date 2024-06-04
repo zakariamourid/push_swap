@@ -2,9 +2,8 @@
 #include <limits.h>
 
 
-int find_max(t_data **stack)
+int find_max(t_data *iterator)
 {
-    t_data *iterator = *stack;
     int max = INT_MIN;
     while(iterator)
     {
@@ -19,7 +18,7 @@ void sort_three(t_data **stack)
 {
     if(!stack)
         return;
-    int max = find_max(stack);
+    int max = find_max(*stack);
     if((*stack)->value == max)
         op_rotate(stack, "ra");
     else if((*stack)->next->value == max)
@@ -32,9 +31,14 @@ void sort_four(t_data **stack_a, t_data **stack_b)
 {
 	if(!stack_a || !stack_b)
 		return;
-	int max = find_max(stack_a);
+	int max = find_max(*stack_a);
 	while((*stack_a)->value != max)
-		op_rotate(stack_a, "ra");
+	{
+		if(find_index(*stack_a, max) > ft_stacksize(*stack_a) / 2)
+			op_rev_rotate(stack_a, "rra");
+		else
+			op_rotate(stack_a, "ra");
+	}
 	op_push(stack_a, stack_b, "pb");
 	sort_three(stack_a);
 	op_push(stack_b, stack_a, "pa");
@@ -45,9 +49,14 @@ void sort_five(t_data **stack_a, t_data **stack_b)
 {
 	if(!stack_a || !stack_b)
 		return;
-	int max = find_max(stack_a);
+	int max = find_max(*stack_a);
 	while((*stack_a)->value != max)
-		op_rotate(stack_a, "ra");
+	{
+		if(find_index(*stack_a, max) > ft_stacksize(*stack_a) / 2)
+			op_rev_rotate(stack_a, "rra");
+		else
+			op_rotate(stack_a, "ra");
+	}
 	op_push(stack_a, stack_b, "pb");
 	sort_four(stack_a, stack_b);
 	op_push(stack_b, stack_a, "pa");

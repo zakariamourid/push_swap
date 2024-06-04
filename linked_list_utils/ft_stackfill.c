@@ -26,7 +26,7 @@ static void	free_split(char **str)
 }
 void clean_exit()
 {
-	printf("Error\n");
+	ft_putstr_fd("Error\n",2);
 	t_vars *my_vars = get_vars();
 	if(my_vars->temp)
 		free_split(my_vars->temp);
@@ -127,10 +127,18 @@ int check_args(char **args)
 int check_empty(char **args,int ac)
 {
 	int i = 1;
+	char **str;
+	//check if string is only spaces
 	while(i < ac)
 	{
+		str = ft_split(args[i],' ');
+		if(!str)
+			return 1;
+		if(!str[0])
+			return (free(str),1);
 		if(args[i][0] == 0)
 			return 1;
+		free_split(str);
 		i++;
 	}
 	return 0;
