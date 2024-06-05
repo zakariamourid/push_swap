@@ -65,6 +65,5 @@ int main(int ac,char **av)
 		sort_five(my_vars->stack_a,my_vars->stack_b);
 	else
 	push_a_to_b(my_vars->stack_a,my_vars->stack_b);
-	//print_ld(*(my_vars->stack_a), "A");
 	free_ps();
 }

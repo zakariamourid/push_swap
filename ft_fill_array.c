@@ -23,7 +23,6 @@ void ft_bubble_sort(int *array, int len)
 	}
 }
 
-
 int *stack_to_array(t_data *stack)
 {
 	int *arr;
@@ -43,23 +42,3 @@ int *stack_to_array(t_data *stack)
 	ft_bubble_sort(arr,size);
 	return arr;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -85,6 +85,5 @@ void push_a_to_b(t_data **stack_a, t_data **stack_b)
 	}
 	push_back(stack_a,stack_b);
 	//print_ld(*stack_a,"A");
-	//print_ld(*stack_b,"B");
 	free(array);
 }
