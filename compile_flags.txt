@@ -1,8 +1,0 @@
--Wall
--Wextra
--Werror
--lft
--L./libft
--I./linked_list_utils/
--I./libft
--I./headers/
