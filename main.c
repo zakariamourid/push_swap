@@ -6,7 +6,7 @@
 /*   By: zmourid <zmourid@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:34 by zmourid           #+#    #+#             */
-/*   Updated: 2024/06/23 20:59:27 by zmourid          ###   ########.fr       */
+/*   Updated: 2024/07/02 13:35:51 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 	my_vars->size_a = ft_stacksize(*(my_vars->stack_a));
 	my_vars->stack_b = get_stack('b');
 	if (is_sorted(*(my_vars->stack_a)))
-		return (0);
+		return (free_ps(),0);
 	if (my_vars->size_a == 2)
 		sort_two(my_vars->stack_a);
 	else if (my_vars->size_a == 3)
