@@ -12,12 +12,12 @@
 
 #include "linked_list.h"
 
-void op_push(t_data **stack_1,t_data **stack_2,char *str)
+void	op_push(t_data **stack_1, t_data **stack_2, char *str)
 {
-    if(!stack_1 || !*stack_1)
-        return ;
-    ft_stack_addfront(stack_2,ft_newnode((*stack_1)->value));
-    ft_delnode(stack_1,(*stack_1)->value);
-    if(str)
-        printf("%s\n",str);
+	if (!stack_1 || !*stack_1)
+		return ;
+	ft_stack_addfront(stack_2, ft_newnode((*stack_1)->value));
+	ft_delnode(stack_1, (*stack_1)->value);
+	if (str)
+		printf("%s\n", str);
 }

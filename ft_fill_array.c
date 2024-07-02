@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fill_array.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zmourid <zmourid@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/23 20:57:18 by zmourid           #+#    #+#             */
+/*   Updated: 2024/06/23 20:57:39 by zmourid          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void ft_bubble_sort(int *array, int len)
+void	ft_bubble_sort(int *array, int len)
 {
-	int i;
-	int j;
-	int temp;
+	int	i;
+	int	j;
+	int	temp;
+
 	i = 0;
 	while (i < len)
 	{
@@ -23,22 +36,22 @@ void ft_bubble_sort(int *array, int len)
 	}
 }
 
-int *stack_to_array(t_data *stack)
+int	*stack_to_array(t_data *stack)
 {
-	int *arr;
-	int i;
-	int size;
-	
+	int	*arr;
+	int	i;
+	int	size;
+
 	i = 0;
 	size = ft_stacksize(stack);
 	arr = malloc(sizeof(int) * size);
-	if(!arr)
-		return NULL;
-	while(stack)
+	if (!arr)
+		return (NULL);
+	while (stack)
 	{
 		arr[i++] = stack->value;
 		stack = stack->next;
 	}
-	ft_bubble_sort(arr,size);
-	return arr;
+	ft_bubble_sort(arr, size);
+	return (arr);
 }

@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stacksize.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zmourid <zmourid@student.1337.ma>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/23 20:52:19 by zmourid           #+#    #+#             */
+/*   Updated: 2024/06/23 20:52:51 by zmourid          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "linked_list.h"
 
-int ft_stacksize(t_data *head)
+int	ft_stacksize(t_data *head)
 {
-    int i;
-    i = 0;
-    while(head)
-    {
-        head = head->next;
-        i++;
-    }
-    return i;
+	int	i;
+
+	i = 0;
+	while (head)
+	{
+		head = head->next;
+		i++;
+	}
+	return (i);
 }

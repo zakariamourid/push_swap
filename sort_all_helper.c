@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newnode.c                                       :+:      :+:    :+:   */
+/*   sort_all_helper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zmourid <zmourid@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 20:46:20 by zakaria           #+#    #+#             */
-/*   Updated: 2024/06/23 20:52:00 by zmourid          ###   ########.fr       */
+/*   Created: 2024/07/02 13:06:58 by zmourid           #+#    #+#             */
+/*   Updated: 2024/07/02 13:15:40 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linked_list.h"
+#include "push_swap.h"
 
-t_data	*ft_newnode(int num)
+int	ft_range(int len)
 {
-	t_data	*node;
+	if (len <= 16)
+		return (3);
+	else if (len <= 100)
+		return (15);
+	else if (len <= 500)
+		return (35);
+	else
+		return (45);
+}
 
-	node = (t_data *)malloc(sizeof(t_data));
-	if (!node)
-		return (NULL);
-	node->value = num;
-	node->next = NULL;
-	return (node);
+int	find_index(t_data *stack, int value)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack->value == value)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
 }
