@@ -28,7 +28,7 @@ void	op_rev_rotate(t_data **stack, char *str)
 	prev->next = NULL;
 	ft_stack_addfront(stack, current);
 	if (str)
-		printf("%s\n", str);
+		ft_putendl_fd(str, 1);
 }
 
 void	op_rrr(t_data **stack_a, t_data **stack_b)

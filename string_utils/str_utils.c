@@ -6,7 +6,7 @@
 /*   By: zmourid <zmourid@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 21:02:15 by zmourid           #+#    #+#             */
-/*   Updated: 2024/06/23 21:02:16 by zmourid          ###   ########.fr       */
+/*   Updated: 2024/07/07 08:40:32 by zmourid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ char	*ft_strjoin_all(char **av, int ac)
 	{
 		tmp = ft_strjoin(str, " ");
 		free(str);
+		if (!tmp)
+			return (NULL);
 		str = ft_strjoin(tmp, av[i]);
 		free(tmp);
+		if (!str)
+			return (NULL);
 		i++;
 	}
 	return (str);

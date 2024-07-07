@@ -22,7 +22,7 @@ int	op_swap(t_data **stack, char *str)
 	(*stack)->next = node->next;
 	ft_stack_addfront(stack, node);
 	if (str)
-		printf("%s\n", str);
+		ft_putendl_fd(str, 1);
 	return (1);
 }
 

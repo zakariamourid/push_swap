@@ -23,7 +23,7 @@ void	op_rotate(t_data **stack, char *str)
 	node->next = NULL;
 	ft_stack_addback(stack, node);
 	if (str)
-		printf("%s\n", str);
+		ft_putendl_fd(str, 1);
 }
 
 void	op_rr(t_data **stack_a, t_data **stack_b)

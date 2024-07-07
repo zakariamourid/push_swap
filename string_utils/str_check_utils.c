@@ -106,8 +106,6 @@ int	check_empty(char **args, int ac)
 			return (1);
 		if (!str[0])
 			return (free(str), 1);
-		if (args[i][0] == 0)
-			return (1);
 		free_split(str);
 		i++;
 	}

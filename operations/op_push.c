@@ -19,5 +19,5 @@ void	op_push(t_data **stack_1, t_data **stack_2, char *str)
 	ft_stack_addfront(stack_2, ft_newnode((*stack_1)->value));
 	ft_delnode(stack_1, (*stack_1)->value);
 	if (str)
-		printf("%s\n", str);
+		ft_putendl_fd(str, 1);
 }

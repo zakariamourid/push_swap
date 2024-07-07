@@ -49,7 +49,7 @@ void	clean_exit(void)
 	if (my_vars->str)
 		free(my_vars->str);
 	free_ps();
-	exit(0);
+	exit(1);
 }
 
 // clean_exit();

@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 	my_vars->size_a = ft_stacksize(*(my_vars->stack_a));
 	my_vars->stack_b = get_stack('b');
 	if (is_sorted(*(my_vars->stack_a)))
-		return (free_ps(),0);
+		return (free_ps(), 0);
 	if (my_vars->size_a == 2)
 		sort_two(my_vars->stack_a);
 	else if (my_vars->size_a == 3)
